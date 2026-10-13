@@ -1,0 +1,55 @@
+// ESP32 FreeRTOS Multitasking Demo
+// Task 1 runs every 1 second
+// Task 2 runs every 2 seconds
+
+void Task1(void *parameter)
+{
+  while (1)
+  {
+    Serial.println("Task 1: Sensor Monitoring");
+
+    vTaskDelay(pdMS_TO_TICKS(1000));
+  }
+}
+
+void Task2(void *parameter)
+{
+  while (1)
+  {
+    Serial.println("Task 2: System Monitoring");
+
+    vTaskDelay(pdMS_TO_TICKS(2000));
+  }
+}
+
+void setup()
+{
+  Serial.begin(115200);
+
+  delay(1000);
+
+  Serial.println("ESP32 FreeRTOS Demo Started!");
+
+  xTaskCreate(
+    Task1,          // Task function
+    "Task1",        // Task name
+    2048,           // Stack size in bytes
+    NULL,           // Parameters
+    1,              // Priority
+    NULL            // Task handle
+  );
+
+  xTaskCreate(
+    Task2,          // Task function
+    "Task2",        // Task name
+    2048,           // Stack size in bytes
+    NULL,           // Parameters
+    1,              // Priority
+    NULL            // Task handle
+  );
+}
+
+void loop()
+{
+  vTaskDelay(pdMS_TO_TICKS(1000));
+}
