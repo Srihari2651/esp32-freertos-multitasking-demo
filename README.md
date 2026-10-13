@@ -19,3 +19,4 @@ This project demonstrates how to leverage the built-in FreeRTOS kernel on the ES
 - Creating RTOS tasks with `xTaskCreate()`
 - Non-blocking delays with `vTaskDelay()` and `pdMS_TO_TICKS()`
 - Multi-task execution using the ESP32 dual-core scheduler
+<img width="1600" height="894" alt="WhatsApp Image 2026-10-13 at 2 11 41 PM" src="https://github.com/user-attachments/assets/e62267e3-6bda-433b-8c91-3b4084f92d08" />
